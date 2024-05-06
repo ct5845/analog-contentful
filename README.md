@@ -1,26 +1,30 @@
-# Analog App
+# [Analog](https://analogjs.org/) and [Contentful](https://www.contentful.com/)
 
-This project was generated with [Analog](https://analogjs.org), the fullstack meta-framework for Angular.
+Simple repo using Analog and Contentful.
 
-## Setup
+Steps taken
 
-Run `npm install` to install the application dependencies.
+```
+npm create analog@latest
+npm i --save contentful
+```
 
-## Development
+* Update ``src/app/pages/index.page.ts`` to just a title.
+At this point build runs fine, and ng start does too.
 
-Run `npm start` for a dev server. Navigate to `http://localhost:5173/`. The application automatically reloads if you change any of the source files.
+* Update ``src/app/pages/index.page.ts`` to use Contentful.
+```
+import {Component} from '@angular/core';
+import * as contentful from 'contentful';
 
-## Build
+console.log(contentful);
 
-Run `npm run build` to build the client/server project. The client build artifacts are located in the `dist/analog/public` directory. The server for the API build artifacts are located in the `dist/analog/server` directory.
-
-## Test
-
-Run `npm run test` to run unit tests with [Vitest](https://vitest.dev).
-
-## Community
-
-- Visit and Star the [GitHub Repo](https://github.com/analogjs/analog)
-- Join the [Discord](https://chat.analogjs.org)
-- Follow us on [Twitter](https://twitter.com/analogjs)
-- Become a [Sponsor](https://github.com/sponsors/brandonroberts)
+@Component({
+  selector: 'app-home',
+  standalone: true,
+  template: `
+    <h1>Analog with Contentful</h1>`,
+})
+export default class HomeComponent {
+}
+```
