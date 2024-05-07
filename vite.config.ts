@@ -6,11 +6,20 @@ import analog from '@analogjs/platform';
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   publicDir: 'src/assets',
+  ssr: {
+    noExternal: ['@analogjs/trpc', '@trpc/server', 'contentful' ],
+    optimizeDeps: {
+      include: ['contentful']
+    },
+  },
   build: {
     target: ['es2020'],
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
   },
   resolve: {
-    mainFields: ['module'],
+    // mainFields: ['module'],
   },
   plugins: [analog({
     nitro: {

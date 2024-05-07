@@ -7,7 +7,14 @@ console.log(contentful);
   selector: 'app-home',
   standalone: true,
   template: `
-    <h1>Analog with Contentful</h1>`,
+    <h1>Analog with Contentful</h1>
+    @if (hasCreateClient){
+      <p>Contentful.createClient is available \\o/</p>
+    } @else {
+      <p>Contentful.createClient is not available :(</p>
+    }
+  `,
 })
 export default class HomeComponent {
+  hasCreateClient = !!contentful.createClient;
 }
