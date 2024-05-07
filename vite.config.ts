@@ -7,7 +7,7 @@ import analog from '@analogjs/platform';
 export default defineConfig(({ mode }) => ({
   publicDir: 'src/assets',
   ssr: {
-    noExternal: ['@analogjs/trpc', '@trpc/server', 'contentful' ],
+    noExternal: [ 'contentful' ],
     optimizeDeps: {
       include: ['contentful']
     },
