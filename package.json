@@ -12,7 +12,9 @@
     "start": "npm run dev",
     "build": "ng build",
     "watch": "ng build --watch",
-    "test": "ng test"
+    "test": "ng test",
+    "prelocal": "ng build",
+    "local": "node dist/analog/server/index.mjs"
   },
   "dependencies": {
     "@analogjs/content": "^1.3.0",
